@@ -1,0 +1,208 @@
+<!DOpCeE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Foto</title>
+
+  <style>
+body {
+  margin: 0;
+  font-family: Arial;
+  color: white;
+
+  background: radial-gradient(circle at top, #111, #000);
+}
+
+/* judul */
+h2 {
+  text-align: center;
+  padding: 15px;
+}
+
+/* galeri scroll */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
+
+  max-height: 85vh;   /* tinggi maksimal */
+  overflow-y: auto;   /* scroll ke bawah */
+}
+
+/* gambar */
+img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* efek hover */
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,170,255,0.5);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(90deg, #00aaff, #0066ff);
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0,170,255,0.7);
+}
+  </style>
+</head>
+<body>
+<video autoplay muted loop id="bgvideo">
+  <source src="bg.mp4" type="video/mp4">
+</video>
+
+<h2 style="
+  text-align:center;
+  color:#00aaff;
+  text-shadow:0 0 10px #00aaff;
+">
+  GaleryAib Kenangan Angkatan 8
+</h2>
+
+  <p style="margin-top:6px; font-size:13px; opacity:0.7;">
+    WELCOME TO AIB ANGKT 8 MID0R1 BY AZKA
+  </p>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+  const photos = [
+    "Bagas.jpg",
+    "Darrel.jpg",
+    "Ripki.jpg",
+    "Salira.jpg", 
+    "Minka.jpg", 
+    "Minka2.jpg", 
+    "Minka3.jpg", 
+    "Minka4.jpg",
+    "Minka5.jpg", 
+    "Minka6.jpg", 
+    "Minka7.jpg", 
+    "Cecil.jpg", 
+    "Cecil2.jpg", 
+    "Cecil3.jpg",
+    "Cecil4.jpg", 
+    "Kekey.jpg", 
+    "Salira.jpg", 
+    "Sasa.jpg",
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    "5.jpg",
+    "6.jpg",
+    "7.jpg",
+    "8.jpg",
+    "9.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg",
+    "23.jpg",
+    "24.jpg",
+    "25.jpg", 
+    "26.jpg", 
+    "27.jpg", 
+    "28.jpg", 
+    "29.jpg",
+    "30.jpg",
+    "32.jpg",
+    "33.jpg",
+    "34.jpg",
+    "35.jpg",
+    "36.jpg",
+    "37.jpg"
+  ];
+
+  const gallery = document.getElementById("gallery");
+
+  photos.forEach(src => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img src="${src}">
+      <div class="content">
+      <a class="btn" href="1.jpg" download>⬇</a>
+      </div>
+    `;
+
+    gallery.appendChild(card);
+  });
+</script>
+<audio id="bgm" loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById("bgm");
+  audio.volume = 0.1;
+
+  document.body.addEventListener("click", () => {
+    audio.play();
+  }, { once: true });
+</script>
+
+<div style="text-align:center; opacity:0.5; padding:15px;">
+  © Angkatan 8 - Memories Never Fade
+</div>
+
+<script>
+document.body.addEventListener("click", function (e) {
+
+  // bikin titik kecil muncul pas klik
+  const dot = document.createElement("div");
+  dot.style.position = "absolute";
+  dot.style.left = e.pageX + "px";
+  dot.style.top = e.pageY + "px";
+  dot.style.width = "10px";
+  dot.style.height = "10px";
+  dot.style.background = "#00aaff";
+  dot.style.borderRadius = "50%";
+  dot.style.transform = "translate(-50%, -50%)";
+  dot.style.opacity = "0.8";
+  dot.style.pointerEvents = "none";
+
+  document.body.appendChild(dot);
+
+  // hilang setelah 0.5 detik
+  setTimeout(() => {
+    dot.remove();
+  }, 500);
+
+});
+</script>
+
+</body>
+</html>
